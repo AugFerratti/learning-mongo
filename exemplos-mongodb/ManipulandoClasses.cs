@@ -1,11 +1,11 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace exemplos_mongodb
 {
-    class acessandoMongoDb
+    class ManipulandoClasses
     {
         static void Main(string[] args)
         {
@@ -16,22 +16,20 @@ namespace exemplos_mongodb
         }
         static async Task MainAsync(string[] args)
         {
-            var doc = new BsonDocument
-            {
-                {"Título", "Guerra dos Tronos" }
-            };
+            //inicializar uma variável do tipo objeto livro
 
-            doc.Add("Autor", "George R R Martin");
-            doc.Add("Ano", 1999);
-            doc.Add("Páginas", 856);
+            Livro livro = new Livro();
+            livro.Título = "Sob a redoma";
+            livro.Autor = "Stephan King";
+            livro.Ano = 2012;
+            livro.Páginas = 679;
 
-            var assuntoArray = new BsonArray();
-            assuntoArray.Add("Fantasia");
-            assuntoArray.Add("Ação");
+            List<string> listaAssuntos = new List<string>();
+            listaAssuntos.Add("Ficção científica");
+            listaAssuntos.Add("Terror");
+            listaAssuntos.Add("Ação");
 
-            doc.Add("Assunto", assuntoArray);
-
-            Console.WriteLine(doc);
+            livro.Assunto = listaAssuntos;
 
             //acesso ao servidor do MongoDB
 
@@ -44,11 +42,11 @@ namespace exemplos_mongodb
 
             //acesso a coleção
 
-            IMongoCollection<BsonDocument> colecao = bancoDados.GetCollection<BsonDocument>("Livros");
+            IMongoCollection<Livro> colecao = bancoDados.GetCollection<Livro>("Livros");
 
             //incluindo documento
 
-            await colecao.InsertOneAsync(doc);
+            await colecao.InsertOneAsync(livro);
 
             Console.WriteLine("Documento incluído.");
         }
