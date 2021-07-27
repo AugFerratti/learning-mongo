@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>exemplos_mongodb.listandoDocumentosFiltroClasse</StartupObject>
+    <StartupObject>exemplos_mongodb.listandoDocumentosOrdem</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.4.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
@@ -121,6 +121,7 @@
     <Compile Include="listandoDocumentos.cs" />
     <Compile Include="listandoDocumentosFiltroBson.cs" />
     <Compile Include="listandoDocumentosFiltroClasse.cs" />
+    <Compile Include="listandoDocumentosOrdem.cs" />
     <Compile Include="Livro.cs" />
     <Compile Include="ManipulandoClasses.cs" />
     <Compile Include="ManipulandoClassesExternas.cs" />

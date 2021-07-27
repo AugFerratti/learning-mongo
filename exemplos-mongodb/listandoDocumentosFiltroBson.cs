@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
+using System.Threading.Tasks;
 
 namespace exemplos_mongodb
 {
@@ -38,7 +35,7 @@ namespace exemplos_mongodb
 
             Console.WriteLine("Listando documentos Autor = Machado de Assis");
 
-           Filtro = new BsonDocument
+            Filtro = new BsonDocument
            {
                {"Autor", "Machado de Assis" }
            };

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
+using System.Threading.Tasks;
 
 namespace exemplos_mongodb
 {
@@ -45,7 +42,7 @@ namespace exemplos_mongodb
             var condicao = construtor.Eq(x => x.Autor, "Machado de Assis");
 
             listaLivros = await conexaoBiblioteca.Livros.Find(condicao).ToListAsync();
-            foreach(var doc in listaLivros)
+            foreach (var doc in listaLivros)
             {
                 Console.WriteLine(doc.ToJson<Livro>());
             }
