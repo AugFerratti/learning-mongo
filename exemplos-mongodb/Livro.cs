@@ -14,4 +14,26 @@ namespace exemplos_mongodb
         public int Páginas { get; set; }
         public List<string> Assunto { get; set; }
     }
+
+    public class valoresLivro
+    {
+
+
+        public static Livro incluiValoresLivro(string Titulo, string Autor, int Ano, int Paginas, string Assuntos)
+        {
+            Livro livro = new Livro();
+            livro.Título = Titulo;
+            livro.Autor = Autor;
+            livro.Ano = Ano;
+            livro.Páginas = Paginas;
+            string[] vetAssunto = Assuntos.Split(',');
+            List<string> vetAssunto2 = new List<string>();
+            for (int i = 0; i <= vetAssunto.Length - 1; i++)
+            {
+                vetAssunto2.Add(vetAssunto[i].Trim());
+            }
+            livro.Assunto = vetAssunto2;
+            return livro;
+        }
+    }
 }
